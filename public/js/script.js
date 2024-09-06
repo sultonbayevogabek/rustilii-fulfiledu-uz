@@ -90,6 +90,10 @@ try {
       localStorage.setItem('user', JSON.stringify({
         name, phone: '+998' + phone, time: new Date().toLocaleString()
       }))
+
+      submitButton.removeAttribute('disabled');
+      submitButton.textContent = "Ro'yxatdan o'tish";
+      closeModal();
       window.location.href = `../telegram.html`
     }
   })
