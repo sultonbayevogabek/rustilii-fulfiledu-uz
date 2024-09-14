@@ -97,5 +97,35 @@ try {
       window.location.href = `../telegram.html`
     }
   })
+
+  // Timer
+  const daysElement = document.getElementById('days');
+  const hoursElement = document.getElementById('hours');
+  const minutesElement = document.getElementById('minutes');
+  const secondsElement = document.getElementById('seconds');
+
+  const endTime = new Date('2024-09-17 23:59:59').getTime()
+
+  const timerInterval = setInterval(() => {
+    const currentTime = new Date().getTime();
+    if (endTime >= currentTime) {
+      let restTime = Math.floor((endTime - currentTime) / 1000);
+      const days = Math.floor(restTime / (24 * 3600));
+      restTime = restTime - days * (24 * 3600);
+      const hours = Math.floor(restTime / 3600);
+      restTime = restTime - hours * 3600;
+      const minutes = Math.floor(restTime / 60);
+      restTime = restTime - minutes * 60;
+      const seconds = restTime;
+
+      daysElement.textContent = `${days < 10 ? '0' + days : days}`;
+      hoursElement.textContent = `${hours < 10 ? '0' + hours : hours}`;
+      minutesElement.textContent = `${minutes < 10 ? '0' + minutes : minutes}`;
+      secondsElement.textContent = `${seconds < 10 ? '0' + seconds : seconds}`;
+    } else {
+      clearInterval(timerInterval)
+    }
+  }, 1000)
+
 } catch (e) {
 }
