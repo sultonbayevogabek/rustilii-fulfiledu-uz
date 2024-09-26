@@ -104,7 +104,7 @@ try {
   const minutesElement = document.getElementById('minutes');
   const secondsElement = document.getElementById('seconds');
 
-  const endTime = new Date('2024-09-17 23:59:59').getTime()
+  const endTime = new Date('2024-10-04 20:29:59').getTime()
 
   const timerInterval = setInterval(() => {
     const currentTime = new Date().getTime();
